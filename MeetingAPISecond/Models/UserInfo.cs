@@ -5,9 +5,10 @@ namespace MeetingApp.Models
     public class UserInfo
     {
         public int? Id { get; set; }
-        
+
+        private string _name;
         [Required(ErrorMessage = "Ad alanı zorunlu")]
-        public string? Name { get; set; }
+        public string? Name { get { return _name; } set { _name = value?.ToUpper(); } }
         
         [Required]
         public string? Phone { get; set; }
